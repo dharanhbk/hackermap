@@ -88,7 +88,7 @@ export default class Navigation extends Component {
     }
 
 
-    listlocations=()=>{
+    getListLocations=()=>{
       let locationlist=this.state.locations;
       
       return locationlist.map(location=>{
@@ -113,7 +113,6 @@ export default class Navigation extends Component {
                                         {
                                             !this.isLast(this.getIndex(locationlist,location))&&
                                         <button className="icon-only small mx-0" data-testid="down-button"
-                                        disabled={this.isLast(this.getIndex(locationlist,location))}
                                         onClick={()=>this.moveDown(this.getIndex(locationlist,location),location)}>
                                             <i className="material-icons">arrow_downward</i>
                                        </button>
@@ -133,7 +132,7 @@ export default class Navigation extends Component {
                     <section className="card pb-16 pr-16 flex-auto layout-column justify-content-center">
                         <ul className="pl-0" data-testid="location-list">
                                 {/*Use this li for rendering each location item as it contains all the data-testid attributes required for the tests to pass*/}
-                          {this.listlocations()}
+                          {this.getListLocations()}
                         </ul>
                     </section>
                     <section className="flex-auto">
